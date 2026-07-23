@@ -1,0 +1,42 @@
+# Personal Claude settings
+.claude/settings.local.json
+
+# Credentials and secrets
+.env
+.env.*
+!.env.example
+credentials/
+secrets/
+tokens/
+cookies/
+browser-data/
+
+# Private connector information
+.mcp.json
+
+# Contact data and campaign outputs
+outputs/
+logs/
+downloads/
+
+# Active campaign state
+state/*
+!state/_template/
+!state/_template/**
+
+# Active campaign configurations
+campaigns/*
+!campaigns/_template/
+!campaigns/_template/**
+
+# Contact and export files
+*.csv
+*.xlsx
+*.xls
+*.jsonl
+*.log
+
+# Windows and system files
+Thumbs.db
+desktop.ini
+.DS_Store

@@ -1,0 +1,86 @@
+# Campaign configuration template.
+# Copy this whole folder to campaigns/<your-campaign-id>/ and fill in every field below.
+# Never edit this template with real campaign data — it must stay a blank starting point.
+# Agents read only campaigns/*/campaign.yaml where status is "active".
+
+campaign_id: ""                # short, unique, lowercase-hyphen id, e.g. "acme-modernization-2026"
+campaign_name: ""
+status: "draft"                 # draft | active | paused | completed
+owner: ""                       # campaign owner's name or email
+product_or_solution: ""
+objective: ""                   # one or two sentences: what this campaign is trying to achieve
+
+# ---- Target market ----
+icp: ""                         # ideal customer profile, in prose
+target_industries: []
+company_size_range:
+  min_employees:
+  max_employees:
+geographies: []
+
+target_accounts: []             # list of company names or domains this campaign is scoped to
+excluded_accounts: []           # existing customers, partners, or accounts explicitly off-limits
+
+personas: []                    # e.g. ["VP HR", "Payroll Director", "HRIS Manager"]
+buying_committee_roles:         # used by account-buying-committee to build the committee map
+  decision_makers: []
+  champions: []
+  influencers: []
+  users: []
+  technical_stakeholders: []
+  likely_blockers: []
+
+# ---- Messaging ----
+pain_points: []
+buying_triggers: []             # events/signals that indicate good timing (migration, hiring surge, etc.)
+value_proposition: ""
+messaging_framework: ""         # short description or a pointer to a longer doc
+proof_points: []
+content_assets: []              # case studies, pages, videos the Personalization agent may recommend
+cta: ""
+
+# ---- Data sources & tools ----
+data_sources: []                 # e.g. ["zoominfo", "web_search", "linkedin_via_chrome"]
+platforms: []                    # e.g. ["linkedin", "reddit", "ukg_community"]
+crm_destination: ""              # e.g. "monday" | "google_sheet:<link>" | "none (local state only)"
+outreach_channels: []            # e.g. ["email_mixmax", "gmail_draft", "linkedin"]
+
+# ---- Limits & safety ----
+daily_limits:
+  signals_per_run:
+  new_contacts_per_run:
+  emails_per_day:
+  linkedin_invites_per_day:
+  comments_per_day:
+contact_cooldown_days: 30
+suppression_rules:
+  respect_global_suppression_list: true
+  additional_suppressed_domains: []
+  additional_suppressed_contacts: []
+
+# ---- Scoring ----
+signal_scoring:
+  relevance_weight: 30
+  recency_weight: 20
+  urgency_weight: 30
+  confidence_weight: 20
+lead_scoring:
+  account_fit_weight: 25
+  contact_fit_weight: 20
+  intent_weight: 30
+  timing_weight: 15
+  data_confidence_weight: 10
+  tier_a_minimum: 80
+  tier_b_minimum: 60
+  tier_c_minimum: 40
+
+# ---- Approval & governance ----
+approval_mode: "drafts_only"     # research_only | drafts_only | batch_approval | campaign_preapproved | approved_automation
+preapproved_action_categories: [] # only meaningful when approval_mode is campaign_preapproved or approved_automation
+
+# ---- Reporting ----
+reporting_destination: "outputs/daily-reports/"
+success_metrics: []              # e.g. ["qualified leads per week", "meetings booked", "reply rate"]
+
+start_date: ""
+end_date: ""
