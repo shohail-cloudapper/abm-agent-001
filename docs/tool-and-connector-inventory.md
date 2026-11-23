@@ -22,6 +22,7 @@ Classification key: **Available (read-only)** · **Available (write-capable)** �
 | Capability | Status | Notes |
 |---|---|---|
 | General web search | **Available (read-only)** | `WebSearch` / `WebFetch`, no auth needed. |
+| ScrapeGraphAI structured extraction (local) | **Available (read-only)** | Installed 2026-11-23: `scrapegraphai` 2.3.1 + Playwright Chromium + Ollama 0.40.16 with `llama3.2`. Run through `tools/scrapegraph/scrape_page.py`, used by `account-signal-intelligence`. Public, non-login pages only. It refuses LinkedIn/UKG Community/TeamBlind and other gated sites, and anything robots.txt disallows. Local model only, so no page data leaves the machine. Output is unverified: confirm against the source before using it as a signal. Needs the Ollama app running; if it isn't, the helper exits with code 2 and the agent writes a manual action. |
 | LinkedIn (including Sales Navigator) | **Available via Claude in Chrome** | No API connector exists. Read (search, view posts/profiles) works through the user's already-logged-in Chrome session. Any write action (invite, message, comment) is Door-Keeper-gated regardless of channel. |
 | Reddit, Quora, X, UKG Community, other forums | **Available via Claude in Chrome** | Same pattern — no API, browser-only, read is fine, posting is gated. |
 | TeamBlind | Manual process required | Anonymous/verification-gated community; browser automation is unreliable here. Treat any TeamBlind finding as a `manual-lead-capture`-style entry, sourced by the human. |
